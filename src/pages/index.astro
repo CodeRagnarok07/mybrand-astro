@@ -1,7 +1,22 @@
 ---
+import Layout from "../layouts/ScrollLayout.astro";
+
 
 ---
 
-<h1>
-	hola mundo
-</h1>
+<Layout title="Index" description="hola mundo">
+
+</Layout>
+
+<style is:global>
+	@font-face {
+		font-family: "tourner";
+		src: url("/fonts/tourner/Tourner.ttf");
+	}
+
+	.header-title {
+		font-family: "tourner";
+		font-size: 4rem;
+
+	}
+</style>
