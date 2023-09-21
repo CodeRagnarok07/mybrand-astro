@@ -1,0 +1,59 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../MetaTags.astro";
+
+type Props = {
+    title: string;
+    description: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <BaseHead title={title} description={description} />
+    </head>
+
+    <body class="scroll-smooth">
+        <slot />
+
+        <main class="yscroll">
+            <section>fron scrollinterface</section>
+            <section>fron scrollinterface</section>
+        </main>
+
+        <main class="yscroll">
+            <section>fron scrollinterface</section>
+            <section>fron scrollinterface</section>
+        </main>
+
+        <style is:global>
+            html,
+            body {
+                height: 100vh;
+                overflow: hidden;
+                width:100%;
+                position: relative;
+            }
+
+            .main {
+                overflow: scroll;
+                height: 100vh;
+                scroll-snap-points-y: repeat(100vh);
+                scroll-snap-type: y mandatory;
+                scroll-snap-behavior: smooth;
+
+                width: 100%;
+                position: absolute;
+
+            }
+
+            .main > section {
+                height: 100vh;
+                scroll-snap-align: start;
+                position: relative;
+            }
+        </style>
+    </body>
+</html>

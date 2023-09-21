@@ -1,10 +1,18 @@
 ---
-import Layout from "../layouts/ScrollLayout.astro";
-
-
+import Hero from "../components/movil/Hero.astro";
+import Portfolio from "../components/movil/Portfolio.astro";
+import Layout from "../layouts/ScrollLayout/index.astro";
+import Scroller from "../layouts/ScrollLayout/Scroll.astro";
 ---
 
 <Layout title="Index" description="hola mundo">
+	<Scroller>
+		<Hero />
+	</Scroller>
+
+	<Scroller>
+		<Portfolio />
+	</Scroller>
 
 </Layout>
 
@@ -17,6 +25,5 @@ import Layout from "../layouts/ScrollLayout.astro";
 	.header-title {
 		font-family: "tourner";
 		font-size: 4rem;
-
 	}
 </style>
