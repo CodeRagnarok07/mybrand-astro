@@ -2,28 +2,12 @@
 import Hero from "../components/movil/Hero.astro";
 import Portfolio from "../components/movil/Portfolio.astro";
 import Layout from "../layouts/ScrollLayout/index.astro";
-import Scroller from "../layouts/ScrollLayout/Scroller.astro";
 ---
 
-<Layout title="Index" description="hola mundo">
-	<Scroller>
-		<Hero />
-	</Scroller>
-
-	<Scroller>
-		<Portfolio />
-	</Scroller>
-
+<Layout title="Index" description="hola mundo" >
+	
+	<section>section 1</section>
+	<section>section 2</section>
 </Layout>
 
-<style is:global>
-	@font-face {
-		font-family: "tourner";
-		src: url("/fonts/tourner/Tourner.ttf");
-	}
 
-	.header-title {
-		font-family: "tourner";
-		font-size: 4rem;
-	}
-</style>

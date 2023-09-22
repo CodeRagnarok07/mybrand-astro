@@ -1,17 +1,22 @@
 ---
-console.log(Astro.self);
+const id = 1;
 
-const id = 1
+const html = await Astro.slots.render('default');
+
+
+console.log( Astro.slots);
+
 
 ---
 
-<main class="yscroller container2">
-    <slot />
+
+
+<main id="element" class="yscroller">
+    <slot accesskey="1" id="20" />
+    <!-- <Fragment set:html={html} /> -->
 </main>
 
-
-
-<style  define:vars={{ id }}>
+<style is:global define:vars={{ id }}>
     main {
         text-align: center;
         position: absolute;
@@ -28,12 +33,12 @@ const id = 1
         width: 100%;
     }
 
-    /* main > * {
+    main > * { 
         min-height: 100dvh;
         scroll-snap-align: start;
         position: relative;
     }
-
+    /*
     .container2 {
         left: 100%;
     } */

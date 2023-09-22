@@ -1,0 +1,19 @@
+::view-transition-new(root) {
+    animation-name: slideLeft;
+    animation-duration: 1s;
+}
+@keyframes slideLeft {
+
+    from {
+        translate: 0;
+    }
+    to {
+        translate: 100%;
+    }
+    
+}
+
+p{
+    overflow: auto;
+    scroll-margin-left: -1px;
+}

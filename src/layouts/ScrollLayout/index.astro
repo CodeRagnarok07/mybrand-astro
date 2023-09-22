@@ -1,7 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../MetaTags.astro";
-import Scroller from './Scroller.astro'
+import Scroller from "./Scroller.astro";
+
+import Navbar from "./Navbar.astro";
 
 type Props = {
     title: string;
@@ -9,6 +11,23 @@ type Props = {
 };
 
 const { title, description } = Astro.props;
+
+import { slide } from "astro:transitions";
+
+const anim = {
+    old: {
+        name: "fadeIn",
+        duration: "0.2s",
+        easing: "linear",
+        fillMode: "forwards",
+    },
+    new: {
+        name: "fadeOut",
+        duration: "0.3s",
+        easing: "linear",
+        fillMode: "backwards",
+    },
+};
 ---
 
 <html lang="en">
@@ -17,58 +36,91 @@ const { title, description } = Astro.props;
     </head>
 
     <body class="scroll-smooth">
+        <Navbar />
 
-        <nav class="nav fixed inset-x-0 bottom-10 z-50 flex h-8 justify-center gap-8 text-bold underline 
-        [&>a]:bg-red-300
-        [&>a]:p-4
-        [&>a]:flex
-        [&>a]:items-center">
-            <a href="#1">1</a> | 
-            <a href="#2">2</a> | 
-            <a href="#3">3</a> | 
-            <a href="#4">4</a>
-        </nav>
+        <main
+            class="xscroller-container scroll-smooth"
+            transition:animate={slide({ duration: "1s" })}
+        >
+            <slot />
+        </main>
 
-        <div class="xscroller-container scroll-smooth">        
-            <Scroller >
-                <section>section 1</section>
-                <section>section 2</section>
-            </Scroller>
-
-            <Scroller >
-                <section class="--1">mierda 3</section>
-                <section class="--1">mierda 4</section>
-            </Scroller>        
-        </div>
-
-        <style is:global type="scss">
+        <style is:global>
             html,
             body {
                 height: 100vh;
                 overflow: hidden;
-                width: 100%;
-                position: relative;
             }
 
             .xscroller-container {
-                width: 100%;
-                min-height: 100dvh;
-
-                position: relative;
-                scroll-behavior: smooth;
+                overflow: auto;
                 overflow-x: hidden;
+                height: 100vh;
+                scroll-snap-points-y: repeat(100vh);
+                scroll-snap-type: y mandatory ;
+                margin-right: -5px;
             }
 
-           
+            .xscroller-container > section {
+                height: 100vh;
+                scroll-snap-align: start;
+                position: relative;
+            }
+
+            /* scroll bar style */
+            .xscroller-container::-webkit-scrollbar {
+                background: transparent;
+            }
+
+            .xscroller-container::-webkit-scrollbar-track {
+                /* border-radius: 100vh; */
+                background: transparent;
+            }
+
+            .xscroller-container::-webkit-scrollbar-thumb {
+                background: #282a44;
+                border-radius: 4rem;
+                border: 5px solid #000000;
+                width: 2px;
+            }
+
+            @font-face {
+                font-family: "tourner";
+                src: url("/fonts/tourner/Tourner.ttf");
+            }
+
+            .header-title {
+                font-family: "tourner";
+                font-size: 4rem;
+            }
+            .scroll-hidden {
+                overflow: hidden;
+            }
+
+            @keyframes slideLeft {
+                from {
+                    translate: 0;
+                }
+                to {
+                    translate: -100%;
+                }
+            }
         </style>
-    </body>
-</html>
 
+        <script>
+            const updateScrollBar = () => {
+                const content = document.querySelector(".xscroller-container");
+                content.ClassList.toggle("scroll-hidden");
+            };
 
+            document.addEventListener("astro:after-swap", updateScrollBar());
+            document.addEventListener("astro:page-load", updateScrollBar());
+        </script>
+    </body><!-- 
 
-<!-- 
     
 scroll y navigation https://jsfiddle.net/9rfdyw27/ 
 scroll x navigation https://stackoverflow.com/questions/53416348/css-scroll-snapping-vertical-not-working 
 
 -->
+</html>

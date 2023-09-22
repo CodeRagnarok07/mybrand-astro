@@ -1,0 +1,23 @@
+
+
+
+
+.scroller {
+
+    width: 100%;
+    min-height: 100dvh;
+    position: relative;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    display: flex;
+
+
+    main {
+        min-height: 100dvh;
+        section {
+            min-height: 100dvh;
+        }
+    }
+    
+    
+}
