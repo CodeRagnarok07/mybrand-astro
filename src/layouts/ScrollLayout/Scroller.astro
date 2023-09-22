@@ -1,0 +1,40 @@
+---
+console.log(Astro.self);
+
+const id = 1
+
+---
+
+<main class="yscroller container2">
+    <slot />
+</main>
+
+
+
+<style  define:vars={{ id }}>
+    main {
+        text-align: center;
+        position: absolute;
+        color: white;
+        min-height: 100dvh;
+        display: inline-block;
+        width: 100%;
+        height: 100vh;
+
+        /* overflow-x: hidden; */
+        scroll-snap-points-y: repeat(100vh);
+        scroll-snap-type: y mandatory;
+        scroll-snap-behavior: smooth;
+        width: 100%;
+    }
+
+    /* main > * {
+        min-height: 100dvh;
+        scroll-snap-align: start;
+        position: relative;
+    }
+
+    .container2 {
+        left: 100%;
+    } */
+</style>

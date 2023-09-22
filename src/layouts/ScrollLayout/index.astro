@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../MetaTags.astro";
+import Scroller from './Scroller.astro'
 
 type Props = {
     title: string;
@@ -16,44 +17,58 @@ const { title, description } = Astro.props;
     </head>
 
     <body class="scroll-smooth">
-        <slot />
 
-        <main class="yscroll">
-            <section>fron scrollinterface</section>
-            <section>fron scrollinterface</section>
-        </main>
+        <nav class="nav fixed inset-x-0 bottom-10 z-50 flex h-8 justify-center gap-8 text-bold underline 
+        [&>a]:bg-red-300
+        [&>a]:p-4
+        [&>a]:flex
+        [&>a]:items-center">
+            <a href="#1">1</a> | 
+            <a href="#2">2</a> | 
+            <a href="#3">3</a> | 
+            <a href="#4">4</a>
+        </nav>
 
-        <main class="yscroll">
-            <section>fron scrollinterface</section>
-            <section>fron scrollinterface</section>
-        </main>
+        <div class="xscroller-container scroll-smooth">        
+            <Scroller >
+                <section>section 1</section>
+                <section>section 2</section>
+            </Scroller>
 
-        <style is:global>
+            <Scroller >
+                <section class="--1">mierda 3</section>
+                <section class="--1">mierda 4</section>
+            </Scroller>        
+        </div>
+
+        <style is:global type="scss">
             html,
             body {
                 height: 100vh;
                 overflow: hidden;
-                width:100%;
-                position: relative;
-            }
-
-            .main {
-                overflow: scroll;
-                height: 100vh;
-                scroll-snap-points-y: repeat(100vh);
-                scroll-snap-type: y mandatory;
-                scroll-snap-behavior: smooth;
-
                 width: 100%;
-                position: absolute;
-
-            }
-
-            .main > section {
-                height: 100vh;
-                scroll-snap-align: start;
                 position: relative;
             }
+
+            .xscroller-container {
+                width: 100%;
+                min-height: 100dvh;
+
+                position: relative;
+                scroll-behavior: smooth;
+                overflow-x: hidden;
+            }
+
+           
         </style>
     </body>
 </html>
+
+
+
+<!-- 
+    
+scroll y navigation https://jsfiddle.net/9rfdyw27/ 
+scroll x navigation https://stackoverflow.com/questions/53416348/css-scroll-snapping-vertical-not-working 
+
+-->
