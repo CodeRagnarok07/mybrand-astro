@@ -69,7 +69,13 @@ This theme is based off of the lovely [Bear Blog](https://github.com/HermanMarti
 
 # Packages
 
+# from Astro
 1.  [typescript](https://docs.astro.build/en/guides/typescript/)
 2.   [Vercel](https://docs.astro.build/en/guides/integrations-guide/vercel/)
 3.   [Tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
-4.   
+
+
+# from npm
+"astro-seo": "^0.8.0",
+
+"astro-compress": "^2.0.12",
