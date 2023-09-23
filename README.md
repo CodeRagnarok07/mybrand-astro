@@ -79,3 +79,7 @@ This theme is based off of the lovely [Bear Blog](https://github.com/HermanMarti
 "astro-seo": "^0.8.0",
 
 "astro-compress": "^2.0.12",
+
+
+[vite-pwa](https://github.com/vite-pwa/astro)
+@vite-pwa/astro -D

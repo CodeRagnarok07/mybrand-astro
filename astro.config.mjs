@@ -4,14 +4,17 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 
 import compress from "astro-compress";
-// import { VitePWA } from 'vite-plugin-pwa';
+import AstroPWA from '@vite-pwa/astro'
 
+
+const config = {
+  site: 'https://example.com',
+  integrations: [sitemap(), tailwind(), compress(), AstroPWA()]
+
+}
+
+config.output = "server"
+config.adapter = vercel()
 
 // https://astro.build/config
-export default defineConfig({
-  site: 'https://example.com',
-  
-  integrations: [sitemap(), tailwind(), compress()]
-  // output: "server",
-  // adapter: vercel()
-});
+export default defineConfig(config);
