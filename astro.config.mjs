@@ -11,6 +11,6 @@ export default defineConfig({
     plugins: [VitePWA()]
   },
   integrations: [tailwind(), react()],
-  output: "server",
-  adapter: vercel()
+  // output: "server",
+  // adapter: vercel()
 });

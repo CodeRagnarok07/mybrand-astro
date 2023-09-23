@@ -1,0 +1,9 @@
+{
+    "name": "mybrandpwa",
+    "short_name": "mybrandpwa",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "lang": "en",
+    "scope": "/"
+}
