@@ -66,3 +66,10 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 ## Credit
 
 This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+
+# Packages
+
+1.  [typescript](https://docs.astro.build/en/guides/typescript/)
+2.   [Vercel](https://docs.astro.build/en/guides/integrations-guide/vercel/)
+3.   [Tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)
+4.   
