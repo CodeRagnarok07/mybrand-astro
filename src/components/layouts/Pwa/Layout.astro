@@ -3,39 +3,41 @@ import SeoHead from "./SeoHead.astro";
 
 // Props
 export interface Props {
-	/** Title of the page. */
-	title: string;
-	/** Specific OpenGraph page title. */
-	ogTitle?: string;
-	/** Description of the page. */
-	description?: string;
-	/** Image thumbnail for the page. */
-	image?: {
-		url: string;
-		alt: string;
-	};
-	/** Whether or not to disable indexing */
-	disableIndexing?: boolean;
+  /** Title of the page. */
+  title: string;
+  /** Specific OpenGraph page title. */
+  ogTitle?: string;
+  /** Description of the page. */
+  description?: string;
+  /** Image thumbnail for the page. */
+  image?: {
+    url: string;
+    alt: string;
+  };
+  /** Whether or not to disable indexing */
+  disableIndexing?: boolean;
 }
 
 const {
-	title,
-	ogTitle,
-	description,
-	image,
-	disableIndexing = false,
+  title,
+  ogTitle,
+  description,
+  image,
+  disableIndexing = false,
 } = Astro.props as Props;
+
+
 ---
 
 <html lang="en">
-	<SeoHead
-		title={title}
-		ogTitle={ogTitle}
-		description={description}
-		image={image}
-		disableIndexing={disableIndexing}
-	>
-		<!-- <SEO
+  <SeoHead
+    title={title}
+    ogTitle={ogTitle}
+    description={description}
+    image={image}
+    disableIndexing={disableIndexing}
+  >
+    <!-- <SEO
 			title={title}
 			description={seoConfig.description || description}
 			noindex={disableIndexing}
@@ -60,16 +62,17 @@ const {
 				card: seoConfig.twitter.card,
 			}}
 		/> -->
-	</SeoHead>
+  </SeoHead>
 
-	<body class="min-h-screen flex flex-col w-full overflow-x-hidden">
-		<main class="flex flex-1 flex-col h-[100%] w-full">
-			<slot />
-		</main>
+  <body class="min-h-screen flex flex-col w-full overflow-x-hidden">
+    <main class="bg-slate-800 text-white flex flex-1 flex-col h-[100%] w-full">
+      <slot />
+    </main>
 
-		<script>
-			// This is a hack to get vite-plugin-pwa to generate a sw.js file.
-			// Do not remove this script tag.
-		</script>
-	</body>
+    <script>
+      // This is a hack to get vite-plugin-pwa to generate a sw.js file.
+      // Do not remove this script tag.
+    </script>
+
+  </body>
 </html>

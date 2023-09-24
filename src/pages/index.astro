@@ -1,8 +1,24 @@
 ---
-import Layer from '@layouts/Pwa/Layout.astro'
+export const prerender = false;
+
+import Layer from "@layouts/Pwa/Layout.astro";
+
+import getSkills from '@/content/query/skills'
+
+const data = await getSkills()
 ---
 
+<Layer title="hola mundo">
+  <div class="flex min-h-screen w-full justify-center items-center">
+    <div class="flex flex-wrap">
+      {data.map((v,k)=>(
+        <div>
+            <img src={v.icon} alt="" />
+        </div>
+    ))}
+    </div>
 
-<Layer title='hola mundo'>
-    <h1>hola mundo</h1>
+
+   
+  </div>
 </Layer>

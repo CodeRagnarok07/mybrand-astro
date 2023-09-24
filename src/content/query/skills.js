@@ -1,12 +1,14 @@
 
-const { Client } = require("@notionhq/client")
-
-const dbId = process.env.NEXT_ARTICLES_DB_ID
-const auth_token = process.env.NEXT_NOTION_TOKEN
+import { Client } from '@notionhq/client';
 
 
-export default async (req, res) => {
 
+
+const auth_token = import.meta.env.NEXT_NOTION_TOKEN
+const dbId = import.meta.env.NEXT_ARTICLES_DB_ID
+
+
+const getSkills = async (req, res) => {
     const query = {
         filter: {
             "property": "Main",
@@ -43,5 +45,9 @@ export default async (req, res) => {
 
         return element
     });
-    return res.status(200).json(list)
+
+    return list
+    // return res.status(200).json(list)
 }
+
+export default getSkills
