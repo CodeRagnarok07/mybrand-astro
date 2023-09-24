@@ -12,7 +12,8 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/components/layouts/*"],
       "@styles/*": ["src/styles/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@utils/*": ["src/utils/*"]
     }
   }
 }

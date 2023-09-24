@@ -1,0 +1,65 @@
+---
+// Component imports
+import { SEO } from "astro-seo";
+
+// Style imports
+
+// Helper imports
+
+// Props
+export interface Props {
+	/** Title of the page. */
+	title: string;
+	/** Specific OpenGraph page title. */
+	ogTitle?: string;
+	/** Description of the page. */
+	description?: string;
+	/** Image thumbnail for the page. */
+	image?: {
+		url: string;
+		alt: string;
+	};
+
+	/** Whether or not to disable indexing */
+	disableIndexing?: boolean;
+}
+
+import favicons from "./favicons.json";
+---
+
+<head lang="es">
+	<!-- seo -->
+	<slot />
+	<script is:inline>
+		console.log("hola mundo");
+	</script>
+	<!-- Global meta tags. -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- FAVICONS. -->
+	{
+		favicons.map((v) => (
+			<link
+				rel={v.rel}
+				type={v.type}
+				sizes={v.sizes}
+				href={v.href}
+			/>
+		))
+	}
+	<!-- FAVICONS. -->
+
+
+	<meta name="msapplication-TileColor" content="#30E130" />
+	<meta
+		name="msapplication-TileImage"
+		content="/favicons/favicon-144x144.png"
+	/>
+	<meta name="msapplication-config" content="/browserconfig.xml" />
+	<meta name="theme-color" content="#30E130" />
+
+	<!-- Service worker registration. -->
+	<!-- <script is:inline src="/registerSW.js"></script>
+		<link rel="manifest" href="/manifest.webmanifest" /> -->
+</head>

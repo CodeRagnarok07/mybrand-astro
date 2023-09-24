@@ -82,4 +82,6 @@ This theme is based off of the lovely [Bear Blog](https://github.com/HermanMarti
 
 
 [vite-pwa](https://github.com/vite-pwa/astro)
+[docs](https://vite-pwa-org.netlify.app/frameworks/astro.html)
+
 @vite-pwa/astro -D
